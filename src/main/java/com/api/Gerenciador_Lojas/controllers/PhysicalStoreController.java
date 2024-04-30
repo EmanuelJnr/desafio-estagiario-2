@@ -16,12 +16,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/physical-store")
 public class PhysicalStoreController {
     @Autowired
+    PhysicalStoreRepository physicalStoreRepository;
+    @Autowired
     PhysicalStoreService physicalStoreService;
 
     @PostMapping
     public ResponseEntity<Object> savePhysicalStore(@RequestBody @Valid PhysicalStoreRecordDTO physicalStoreRecordDTO){
+        if(physicalStoreService.existsByTelephone(physicalStoreRecordDTO.telephone())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Telephone is already in use!");
+        }
+        if(physicalStoreService.existsByPhysicalAddress(physicalStoreRecordDTO.physicalAddress())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Physical Address is already in use!");
+        }
         var physicalStoreModel = new PhysicalStoreModel();
         BeanUtils.copyProperties(physicalStoreRecordDTO, physicalStoreModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(physicalStoreService.save(physicalStoreModel));
+        return ResponseEntity.status(HttpStatus.CREATED).body(physicalStoreRepository.save(physicalStoreModel));
     }
 }

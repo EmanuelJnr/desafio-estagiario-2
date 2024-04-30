@@ -15,4 +15,12 @@ public class PhysicalStoreService {
     public PhysicalStoreModel save(PhysicalStoreModel physicalStoreModel) {
         return physicalStoreRepository.save(physicalStoreModel);
     }
+
+    public boolean existsByTelephone(String telephone) {
+        return physicalStoreRepository.existsByTelephone(telephone);
+    }
+
+    public boolean existsByPhysicalAddress(String physicalAddress) {
+        return physicalStoreRepository.existsByPhysicalAddress(physicalAddress);
+    }
 }
