@@ -54,4 +54,14 @@ public class PhysicalStoreController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(physicalStoreModelOptional.get());
     }
+
+    @DeleteMapping("/{idPhysicalStore}")
+    public ResponseEntity<Object> deletePhysicalStore(@PathVariable(value = "idPhysicalStore") UUID idPhysicalStore){
+        Optional<PhysicalStoreModel> physicalStoreModelOptional = physicalStoreRepository.findById(idPhysicalStore);
+        if (!physicalStoreModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Physical Store not found!");
+        }
+        physicalStoreRepository.delete(physicalStoreModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(("Physical Store deleted successfully."));
+    }
 }
