@@ -5,13 +5,17 @@ import org.springframework.hateoas.RepresentationModel;
 import java.io.Serializable;
 import java.util.UUID;
 
+//Essa clase é responsável por encapsular os dados da Loja Virtual dentro do seu escopo (POJO)
 @Entity
-@Table(name = "TB_VIRTUAL_STORE")
+@Table(name = "TB_VIRTUAL_STORE")//Essa anotation se comunica com o Spring que haverá uma tabela no BD para guardar seus dados
+
+//A classe extende o RepresentationModel para ser possível a utilização dos métodos add, linkTo e methodOn para criar links de navegabilidade
 public class VirtualStoreModel extends RepresentationModel<VirtualStoreModel> implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id//Anotação para descrever que este atributo "idVirtualStore" será um ID no Banco de Dados
+    @GeneratedValue(strategy = GenerationType.AUTO)//Anotação que indica o geramento aleatório de chaves, mas não repetindo
     private UUID idVirtualStore;
     private String CNPJ;
     private String name;
@@ -20,6 +24,7 @@ public class VirtualStoreModel extends RepresentationModel<VirtualStoreModel> im
     private String URL;
     private String assessment;
 
+    //Abaixo vemos os Getters e Setters de cada atributo privado, para que possamos acessá-los e alterá-los
     public UUID getIdVirtualStore() {
         return idVirtualStore;
     }

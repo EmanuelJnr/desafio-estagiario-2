@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "bd088042-48fc-450c-97eb-8a844d2e3e72",
+		"name": "PhysicalStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26409695"
+	},
+	"item": [
+		{
+			"name": "POST PStore",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CNPJ\": \"45.242.914/0216-09\",\r\n    \"name\": \"C&A Modas\",\r\n    \"segment\": \"Moda feminina, masculina e infantil\",\r\n    \"telephone\": \"83 2102-0001\",\r\n    \"physicalAddress\": \"R. Maciel Pinheiro, 213 - Centro, Campina Grande - PB, 58400-100\",\r\n    \"numberEmployees\": 14000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/physical-store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"physical-store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PStore ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/physical-store?page=0&size=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"physical-store"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "numberEmployees,DESC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PStore ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/physical-store/9c23e3d8-4cf0-4806-81e2-bc8cf8dfec67",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"physical-store",
+						"9c23e3d8-4cf0-4806-81e2-bc8cf8dfec67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE PStore ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/physical-store/2c6b6e8c-4c05-4edf-aa56-3c7c6ce259f8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"physical-store",
+						"2c6b6e8c-4c05-4edf-aa56-3c7c6ce259f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT PStore ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CNPJ\": \"45.242.914/0216-09\",\r\n    \"name\": \"C&A Modas\",\r\n    \"segment\": \"Moda feminina, masculina e infantil\",\r\n    \"telephone\": \"81 3046-1946\",\r\n    \"physicalAddress\": \"Av. Agamenon Magalhães, 444 - Maurício de Nassau, Caruaru - PE, 55012-290\",\r\n    \"numberEmployees\": 14000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/physical-store/9c23e3d8-4cf0-4806-81e2-bc8cf8dfec67",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"physical-store",
+						"9c23e3d8-4cf0-4806-81e2-bc8cf8dfec67"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
