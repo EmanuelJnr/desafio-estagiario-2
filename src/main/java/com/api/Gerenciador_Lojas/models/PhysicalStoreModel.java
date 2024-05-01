@@ -1,12 +1,13 @@
 package com.api.Gerenciador_Lojas.models;
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "TB_PHYSICAL_STORE")
-public class PhysicalStoreModel implements Serializable {
+public class PhysicalStoreModel extends RepresentationModel<PhysicalStoreModel> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
